@@ -21,4 +21,19 @@ if ($result) {
     echo "Insert exitoso!!!<br>";
 }
 
+$sql = "update usuarios set ";
+$sql .= "password = 'ana987654' ";
+$sql .= "where id=2";
+
+$result = $conx->query($sql);
+if ($result) {
+    echo "Update exitoso!!!<br>";
+}
+
+$sql = "delete from usuarios where id>4";
+$result = $conx->query($sql);
+if ($result) {
+    echo "Delete exitoso!!!<br>";
+}
+
 $conx->close();
