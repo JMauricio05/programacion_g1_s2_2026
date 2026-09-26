@@ -36,4 +36,17 @@ if ($result) {
     echo "Delete exitoso!!!<br>";
 }
 
+$sql = "select * from usuarios";
+$result = $conx->query($sql);
+if ($result->num_rows > 0) {
+    echo "Si hay datos!!!<br>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<br>";
+        echo "Nombre: " . $row["nombre"];
+        echo " Username: " . $row["username"];
+    }
+} else {
+    echo "No hay datos!!!<br>";
+}
+
 $conx->close();
