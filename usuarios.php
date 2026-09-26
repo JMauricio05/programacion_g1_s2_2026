@@ -22,7 +22,7 @@ $conexDB = $conexionDB->get_conexDB();
 <body>
     <h1>Lista de usuarios</h1>
     <a href="operaciones/cerrar_sesion.php">Cerrar sesion</a>
-    <a href="#">Crear usuario</a>
+    <a href="formulario_usuario.php">Crear usuario</a>
     <br>
     <table>
         <thead>
