@@ -24,6 +24,11 @@ $conexDB = $conexionDB->get_conexDB();
     <a href="operaciones/cerrar_sesion.php">Cerrar sesion</a>
     <a href="formulario_usuario.php">Crear usuario</a>
     <br>
+    <?php
+    if (!empty($_GET['error_delete'])) {
+        echo '<p>Error al eliminar el registro</p>';
+    }
+    ?>
     <table>
         <thead>
             <tr>
@@ -39,22 +44,24 @@ $conexDB = $conexionDB->get_conexDB();
             $result = $conexDB->query($select);
             if ($result->num_rows > 0) {
                 $num = 0;
-                while($row = $result->fetch_assoc()){
+                while ($row = $result->fetch_assoc()) {
                     $num++;
                     echo '<tr>';
-                    echo '  <td>'.$num.'</td>'; 
-                    echo '  <td>'.$row["nombre"].'</td>'; 
-                    echo '  <td>'.$row["username"].'</td>'; 
-                    echo '  <td>'; 
-                    echo '  <a href="formulario_usuario.php?id='.$row["id"].'">modificar</a>'; 
-                    echo '  <a href="confirmar_eliminacion.php?id='.$row["id"].'">eliminar</a>'; 
-                    echo '  </td>'; 
+                    echo '  <td>' . $num . '</td>';
+                    echo '  <td>' . $row["nombre"] . '</td>';
+                    echo '  <td>' . $row["username"] . '</td>';
+                    echo '  <td>';
+                    echo '  <a href="formulario_usuario.php?id=' . $row["id"] . '">modificar</a>';
+                    echo '  <a href="confirmar_eliminacion.php?id=' . $row["id"] . '">eliminar</a>';
+                    echo '  </td>';
                     echo '</tr>';
                 }
             }
             ?>
         </tbody>
     </table>
+
+
 </body>
 
 </html>
