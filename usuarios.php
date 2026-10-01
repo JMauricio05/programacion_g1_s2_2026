@@ -38,12 +38,17 @@ $conexDB = $conexionDB->get_conexDB();
             $select = "select * from usuarios";
             $result = $conexDB->query($select);
             if ($result->num_rows > 0) {
+                $num = 0;
                 while($row = $result->fetch_assoc()){
+                    $num++;
                     echo '<tr>';
-                    echo '  <td>'.$row["id"].'</td>'; 
+                    echo '  <td>'.$num.'</td>'; 
                     echo '  <td>'.$row["nombre"].'</td>'; 
                     echo '  <td>'.$row["username"].'</td>'; 
-                    echo '  <td></td>'; 
+                    echo '  <td>'; 
+                    echo '  <a href="formulario_usuario.php?id='.$row["id"].'">modificar</a>'; 
+                    echo '  <a href="confirmar_eliminacion.php?id='.$row["id"].'">eliminar</a>'; 
+                    echo '  </td>'; 
                     echo '</tr>';
                 }
             }
