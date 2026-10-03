@@ -1,8 +1,9 @@
 <?php
 
-namespace app\models\services\database;
+namespace app\models\database;
 
 use mysqli;
+use mysqli_result;
 
 class UserDB implements UserDBImpl
 {
@@ -33,7 +34,7 @@ class UserDB implements UserDBImpl
         }
     }
 
-    public function query(string $sql)
+    public function query(string $sql): mysqli_result|bool
     {
         return $this->conexDB->query($sql);
     }
