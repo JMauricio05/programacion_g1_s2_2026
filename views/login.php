@@ -1,14 +1,21 @@
+<?php
+$error_validar_sesion = !empty($_GET["error_sesion"]);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sisión</title>
     <link rel="stylesheet" href="../public/css/login.css">
 </head>
+
 <body>
     <h1>Iniciar Sesión</h1>
-    <form action="" method="post">
+    <form action="operaciones/validar_sesion.php" method="post">
         <div>
             <label for="username">Usuario:</label>
             <input type="text" name="username" id="username" required>
@@ -21,5 +28,12 @@
             <button type="submit">Inicar sesión</button>
         </div>
     </form>
+    <?php
+    if ($error_validar_sesion) {
+        echo '<p>Datos incorrectos.</p>';
+    }
+    ?>
+
 </body>
+
 </html>

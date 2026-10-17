@@ -2,20 +2,20 @@
 
 namespace app\models\config;
 
-use app\models\database\UserDBImpl;
-use app\models\database\UserDB;
-use app\models\repository\UserRepositoryImpl;
-use app\models\repository\UserRepository;
+use app\models\database\UsersDB;
+use app\models\database\UsersDBInterface;
+use app\models\repositories\users_repository\UsersRespository;
+use app\models\repositories\users_repository\UsersRespositoryInterface;
 
-class UserDBConfig
+class ModelsConfig
 {
-    public static function get_user_db(): UserDBImpl
+    public static function get_user_db(): UsersDBInterface
     {
-        return new UserDB();
+        return new UsersDB();
     }
 
-    public static function get_user_repository(): UserRepositoryImpl
+    public static function get_users_repository(): UsersRespositoryInterface
     {
-        return new UserRepository(UserDBConfig::get_user_db());
+        return new UsersRespository(ModelsConfig::get_user_db());
     }
 }

@@ -7,7 +7,7 @@ class User
     private int $id;
     private string $name;
     private string $username;
-    private string $password;
+    private string|null $password;
 
     public function __construct(
         int $id,
@@ -20,7 +20,6 @@ class User
         $this->username = $username;
         $this->password = $password;
     }
-
 
     public function get_id(): int
     {

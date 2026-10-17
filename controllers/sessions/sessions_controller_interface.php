@@ -1,10 +1,11 @@
 <?php
 
-namespace app\controllers\users;
+namespace app\controllers\sessions;
 
 use app\models\entities\User;
 
-interface UserControllerImpl
+interface SessionsControllerInterface
 {
     public function find_user(string $username, string $password): User|null;
+    public function save_session(User $user);
 }

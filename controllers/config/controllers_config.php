@@ -2,14 +2,14 @@
 
 namespace app\controllers\config;
 
-use app\controllers\users\UserControllerImpl;
-use app\controllers\users\UsersController;
-use app\models\config\UserDBConfig;
+use app\controllers\sessions\SessionsController;
+use app\controllers\sessions\SessionsControllerInterface;
+use app\models\config\ModelsConfig;
 
 class ControllersConfig
 {
-    public static function get_user_controller(): UserControllerImpl
+    public static function get_sessions_controller(): SessionsControllerInterface
     {
-        return new UsersController(UserDBConfig::get_user_repository());
+        return new SessionsController(ModelsConfig::get_users_repository());
     }
 }
