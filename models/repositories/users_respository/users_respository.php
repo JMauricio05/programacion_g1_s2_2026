@@ -35,6 +35,9 @@ class UsersRespository implements UsersRespositoryInterface
         //     array_push($users, UserMappers::to_entity($row));
         // }
         // return $users;
-        return array_map(fn($row): User => UserMappers::to_entity($row), $users_db);
+        return array_map(
+            fn($row): User => UserMappers::to_entity($row),
+            $users_db
+        );
     }
 }
