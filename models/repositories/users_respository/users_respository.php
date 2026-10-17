@@ -25,4 +25,15 @@ class UsersRespository implements UsersRespositoryInterface
         }
         return UserMappers::to_entity($users[0]);
     }
+
+    public function get_users(): array
+    {
+        $sql = "select * from usuarios";
+        $users_db = $this->users_db->query_select($sql);
+        $users = [];
+        foreach ($users_db as $row) {
+            array_push($users, UserMappers::to_entity($row));
+        }
+        return $users;
+    }
 }

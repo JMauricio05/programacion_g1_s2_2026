@@ -7,4 +7,6 @@ use app\models\entities\User;
 interface UsersRespositoryInterface
 {
     public function find_user(string $username, string $password): User;
+
+    public function get_users(): array;
 }
