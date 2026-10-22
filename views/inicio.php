@@ -53,6 +53,9 @@ $users = $controller->get_users_all();
                 echo '  <td>' . $user->get_id() . '</td>';
                 echo '  <td>' . $user->get_name() . '</td>';
                 echo '  <td>' . $user->get_username() . '</td>';
+                echo '  <td>';
+                echo '      <a href="usuario_form.php?id=' . $user->get_id() . '">Modificar</a>';
+                echo '  </td>';
                 echo '</tr>';
             }
             ?>

@@ -47,4 +47,26 @@ class UsersRespository implements UsersRespositoryInterface
         $sql .= "('" . $user->get_name() . "','" . $user->get_username() . "','" . $user->get_password() . "')";
         return $this->users_db->query($sql);
     }
+
+    public function update_user(User $user): bool
+    {
+        $sql = "update usuarios set ";
+        $sql .= " nombre='" . $user->get_name() . "', ";
+        $sql .= " username='" . $user->get_username() . "' ";
+        if (!empty($user->get_password())) {
+            $sql .= ", password='" . $user->get_password() . "' ";
+        }
+        $sql .= " where id=" . $user->get_id();
+        return $this->users_db->query($sql);
+    }
+
+    public function find_user_by_id(int $id): User
+    {
+        $sql = "select * from usuarios where id=$id";
+        $users = $this->users_db->query_select($sql);
+        if (count($users) == 0) {
+            throw new Exception("Usuario no encontrado", 2);
+        }
+        return UserMappers::to_entity($users[0]);
+    }
 }
