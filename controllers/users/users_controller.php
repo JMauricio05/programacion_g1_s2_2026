@@ -2,6 +2,7 @@
 
 namespace app\controllers\users;
 
+use app\controllers\mappers\UsersMapperController;
 use app\models\entities\User;
 use app\models\repositories\users_repository\UsersRespositoryInterface;
 
@@ -22,23 +23,13 @@ class UsersController implements UsersControllerInterface
 
     public function save_user(array $request): bool
     {
-        $user = new User(
-            0,
-            $request['nombre'],
-            $request['username'],
-            $request['password']
-        );
+        $user = UsersMapperController::to_entity($request);
         return $this->user_model->save_new_user($user);
     }
 
     public function update_user(array $request): bool
     {
-        $user = new User(
-            $request['id'],
-            $request['nombre'],
-            $request['username'],
-            empty($request['password']) ? "" : $request['password']
-        );
+        $user = UsersMapperController::to_entity($request);
         return $this->user_model->update_user($user);
     }
 

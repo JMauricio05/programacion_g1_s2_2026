@@ -7,7 +7,7 @@ require "../models/repositories/users_respository/users_respository_interface.ph
 require "../models/repositories/users_respository/users_respository.php";
 require "../models/config/models_config.php";
 
-
+require "../controllers/mappers/users_mapper_controller.php";
 require "../controllers/users/users_controller_interface.php";
 require "../controllers/users/users_controller.php";
 require "../controllers/config/controllers_config.php";
@@ -57,7 +57,7 @@ if (!empty($_GET['id'])) {
         </div>
         <div>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" <?php echo empty($id)?'required':''; ?> >
+            <input type="password" id="password" name="password" <?php echo empty($id) ? 'required' : ''; ?>>
         </div>
         <div>
             <button type="submit">Guardar</button>

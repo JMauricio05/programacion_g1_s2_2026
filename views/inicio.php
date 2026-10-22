@@ -8,6 +8,7 @@ require "../models/repositories/users_respository/users_respository.php";
 require "../models/config/models_config.php";
 
 
+require "../controllers/mappers/users_mapper_controller.php";
 require "../controllers/users/users_controller_interface.php";
 require "../controllers/users/users_controller.php";
 require "../controllers/config/controllers_config.php";
