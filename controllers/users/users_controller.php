@@ -37,4 +37,8 @@ class UsersController implements UsersControllerInterface
     {
         return $this->user_model->find_user_by_id($id);
     }
+
+    public function delete_user(int $id):bool{
+        return $this->user_model->delete_user($id);
+    }
 }

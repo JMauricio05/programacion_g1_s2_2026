@@ -69,4 +69,10 @@ class UsersRespository implements UsersRespositoryInterface
         }
         return UserMappers::to_entity($users[0]);
     }
+
+    public function delete_user(int $id): bool
+    {
+        $sql = "delete from usuarios where id=$id";
+        return $this->users_db->query($sql);
+    }
 }

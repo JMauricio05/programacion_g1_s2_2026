@@ -10,4 +10,5 @@ interface UsersControllerInterface
     public function save_user(array $request): bool;
     public function update_user(array $request): bool;
     public function get_user(int $id): User;
+    public function delete_user(int $id):bool;
 }
