@@ -34,4 +34,11 @@ class UsersDB implements UsersDBInterface
         $this->conex->close();
         return $rows;
     }
+
+    public function query(string $sql): bool
+    {
+        $result = $this->conex->query($sql);
+        $this->conex->close();
+        return $result;
+    }
 }

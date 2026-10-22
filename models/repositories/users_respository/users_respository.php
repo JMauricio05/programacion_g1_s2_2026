@@ -40,4 +40,11 @@ class UsersRespository implements UsersRespositoryInterface
             $users_db
         );
     }
+
+    public function save_new_user(User $user): bool
+    {
+        $sql = "insert into usuarios (nombre, username, password)values";
+        $sql .= "('" . $user->get_name() . "','" . $user->get_username() . "','" . $user->get_password() . "')";
+        return $this->users_db->query($sql);
+    }
 }

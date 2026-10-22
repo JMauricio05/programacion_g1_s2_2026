@@ -31,6 +31,13 @@ $users = $controller->get_users_all();
 <body>
     <h1>Lista de usuarios</h1>
     <br>
+    <a href="usuario_form.php">Crear usuario</a>
+    <br>
+    <?php
+        if(!empty($_GET['error'])){
+            echo '<p>Error al guardar los datos del usuario!!!</p>';
+        }
+    ?>
     <table>
         <thead>
             <tr>
@@ -51,6 +58,7 @@ $users = $controller->get_users_all();
             ?>
         </tbody>
     </table>
+
 </body>
 
 </html>

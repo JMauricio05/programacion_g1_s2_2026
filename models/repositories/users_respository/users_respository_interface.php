@@ -9,4 +9,6 @@ interface UsersRespositoryInterface
     public function find_user(string $username, string $password): User;
 
     public function get_users(): array;
+
+    public function save_new_user(User $user): bool;
 }
