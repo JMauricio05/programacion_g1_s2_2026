@@ -1,0 +1,15 @@
+### Prueba de endpoints
+
+### Uusarios ms
+
+###prueba inicio
+GET http://127.0.0.1:82/inicio
+
+### Prueba suma
+POST http://127.0.0.1:82/suma
+Content-Type: application/json
+
+{
+    "numero1": 5,
+    "numero2": 15
+}
