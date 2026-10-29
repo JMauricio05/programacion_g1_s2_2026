@@ -5,8 +5,14 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../app/global/database_config.php';
+
+$users_routers = require __DIR__.'/../app/Presentation/Routers/endpoints.php';
 
 $app = AppFactory::create();
+
+$users_routers($app);
+
 
 $app->get('/inicio', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello world!");

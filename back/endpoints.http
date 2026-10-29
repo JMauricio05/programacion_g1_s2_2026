@@ -3,13 +3,50 @@
 ### Uusarios ms
 
 ###prueba inicio
-GET http://127.0.0.1:82/inicio
+GET http://127.0.0.1:8000/inicio
 
 ### Prueba suma
-POST http://127.0.0.1:82/suma
+POST http://127.0.0.1:8000/suma
 Content-Type: application/json
 
 {
-    "numero1": 5,
+    "numero1": 15,
     "numero2": 15
 }
+
+### login
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+{
+    "username": "ana",
+    "password": "1234566"
+}
+
+
+### consultar todos los usuarios
+GET http://127.0.0.1:8000/usuarios
+
+### crear usuarios
+POST http://127.0.0.1:8000/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Miguel",
+    "username": "miguel",
+    "password": "12345"
+}
+
+### modificar usuario
+PUT http://127.0.0.1:8000/usuarios/23
+Content-Type: application/json
+
+{
+    "nombre": "James",
+    "username": "james.bond",
+    "password": "987654"
+}
+
+### eliminar usuario
+DELETE http://127.0.0.1:8000/usuarios/22
+
