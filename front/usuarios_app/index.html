@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Lista de usuarios</h1>
+    <br>
+    <form name="userForm">
+        <div>
+            <label for="Nombre">Nombre:</label>
+            <input type="text" name="nombre" id="Nombre">
+        </div>
+        <div>
+            <label for="Username">Username:</label>
+            <input type="text" name="username" id="Username">
+        </div>
+        <div>
+            <label for="Pwd">Password:</label>
+            <input type="password" name="pwd" id="Pwd">
+        </div>
+        <div>
+            <button type="submit">Registrar</button>
+        </div>
+    </form>
+    <table id="usuariosTb">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nombre</th>
+                <th>Username</th>
+                <th>
+                    <button id="reloadBtn">Actualizar</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="3">No hay usuarios...</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Juan</td>
+                <td>juan12345</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="js/usuarios.js"></script>
+</body>
+</html>
