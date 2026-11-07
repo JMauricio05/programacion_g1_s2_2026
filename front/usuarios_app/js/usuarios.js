@@ -3,6 +3,8 @@ const url_user = "http://127.0.0.1:8000/usuarios";
 const user_tb = document.getElementById("usuariosTb");
 const reloadBtn = document.getElementById("reloadBtn");
 const userForm = document.forms["userForm"];
+const modalBorrar = document.getElementById("modal");
+let registro_id = 0;
 
 //---------------Funciones------------------------
 const consultarUsuarios = () => {
@@ -39,10 +41,12 @@ const mostrarDatos = (lista) => {
     const tdUsername = document.createElement("td");
     tdUsername.textContent = item.username;
 
-    const borrarBtn = document.createElement('button');
+    const borrarBtn = document.createElement("button");
     borrarBtn.textContent = "Borrar";
-    borrarBtn.addEventListener('click',()=>{
-        borrar(item.id)
+    borrarBtn.addEventListener("click", () => {
+      modalBorrar.classList.remove("close");
+      registro_id = item.id;
+      //borrar(item.id)
     });
     const tdbotones = document.createElement("td");
     tdbotones.appendChild(borrarBtn);
@@ -85,8 +89,8 @@ const registrar = async () => {
 
 const borrar = async (id) => {
   try {
-    const response = await fetch(url_user+'/'+id, {
-        method: 'delete'
+    const response = await fetch(url_user + "/" + id, {
+      method: "delete",
     });
     if (response.status == 200) {
       await queryUsers();
@@ -107,4 +111,14 @@ reloadBtn.addEventListener("click", () => {
 userForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   registrar();
+});
+
+document.getElementById("cancelarModalBtn").addEventListener("click", () => {
+  modalBorrar.classList.add("close");
+});
+
+document.getElementById("borrarModalBtn").addEventListener("click", () => {
+  borrar(registro_id).then(() => {
+    modalBorrar.classList.add("close");
+  });
 });
