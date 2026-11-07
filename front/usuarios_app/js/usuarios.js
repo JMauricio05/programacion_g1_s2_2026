@@ -5,6 +5,14 @@ const reloadBtn = document.getElementById("reloadBtn");
 const userForm = document.forms["userForm"];
 const modalBorrar = document.getElementById("modal");
 let registro_id = 0;
+const userName = document.getElementById("user-name");
+const userSession = sessionStorage.getItem("user.name");
+const cerrarSesionBtn = document.getElementById("cerrarSesionBtn");
+
+if (!userSession) {
+  window.location.href = "index.html";
+}
+userName.textContent = sessionStorage.getItem("user.name");
 
 //---------------Funciones------------------------
 const consultarUsuarios = () => {
@@ -121,4 +129,10 @@ document.getElementById("borrarModalBtn").addEventListener("click", () => {
   borrar(registro_id).then(() => {
     modalBorrar.classList.add("close");
   });
+});
+
+cerrarSesionBtn.addEventListener("click", () => {
+  // sessionStorage.removeItem('user.name');
+  sessionStorage.clear();
+  window.location.href = "index.html";
 });

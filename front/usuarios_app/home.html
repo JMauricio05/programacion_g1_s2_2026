@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <h1>Lista de usuarios</h1>
+    <h2>Bienvenido <span id="user-name">Pepe</span></h2>
+    <button id="cerrarSesionBtn">Cerrar sesion</button>
+    <br />
+    <br />
+    <div>
+      <button id="registrar-btn">Registrar</button>
+    </div>
+    <div id="user-form-content" class="form-content">
+      <form name="userForm">
+        <div>
+          <label for="Nombre">Nombre:</label>
+          <input type="text" name="nombre" id="Nombre" />
+        </div>
+        <div>
+          <label for="Username">Username:</label>
+          <input type="text" name="username" id="Username" />
+        </div>
+        <div>
+          <label for="Pwd">Password:</label>
+          <input type="password" name="pwd" id="Pwd" />
+        </div>
+        <div>
+          <button type="reset">Cancelar</button>
+          <button type="submit">Registrar</button>
+        </div>
+      </form>
+    </div>
+    <table id="usuariosTb">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nombre</th>
+          <th>Username</th>
+          <th>
+            <button id="reloadBtn">Actualizar</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="3">No hay usuarios...</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Juan</td>
+          <td>juan12345</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="modal" class="modal close">
+        <div class="modal-content">
+            <h3>¿Desea eliminar el registro?</h3>
+            <div>
+                <button id="cancelarModalBtn">Cancelar</button>
+                <button id="borrarModalBtn">Borrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/usuarios.js"></script>
+    <script src="js/formularios.js"></script>
+  </body>
+</html>

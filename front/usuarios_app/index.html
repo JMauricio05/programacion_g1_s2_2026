@@ -1,71 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuarios</title>
-    <link rel="stylesheet" href="css/index.css">
-  </head>
-  <body>
-    <h1>Lista de usuarios</h1>
-    <br />
-    <div>
-      <button id="registrar-btn">Registrar</button>
-    </div>
-    <div id="user-form-content" class="form-content">
-      <form name="userForm">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Iniciar sesión</h1>
+    <br>
+    <form name="login-form">
         <div>
-          <label for="Nombre">Nombre:</label>
-          <input type="text" name="nombre" id="Nombre" />
+            <label for="username">Username:</label>
+            <input type="text" name="username">
         </div>
         <div>
-          <label for="Username">Username:</label>
-          <input type="text" name="username" id="Username" />
+            <label for="password">Password:</label>
+            <input type="password" name="password">
         </div>
         <div>
-          <label for="Pwd">Password:</label>
-          <input type="password" name="pwd" id="Pwd" />
+            <button type="submit">Iniciar sesión</button>
         </div>
-        <div>
-          <button type="reset">Cancelar</button>
-          <button type="submit">Registrar</button>
-        </div>
-      </form>
-    </div>
-    <table id="usuariosTb">
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Nombre</th>
-          <th>Username</th>
-          <th>
-            <button id="reloadBtn">Actualizar</button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="3">No hay usuarios...</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Juan</td>
-          <td>juan12345</td>
-        </tr>
-      </tbody>
-    </table>
+    </form>
 
-    <div id="modal" class="modal close">
-        <div class="modal-content">
-            <h3>¿Desea eliminar el registro?</h3>
-            <div>
-                <button id="cancelarModalBtn">Cancelar</button>
-                <button id="borrarModalBtn">Borrar</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/usuarios.js"></script>
-    <script src="js/formularios.js"></script>
-  </body>
+    <script src="js/login.js"></script>
+</body>
 </html>
